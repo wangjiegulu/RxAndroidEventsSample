@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RxBus {
     private static final String TAG = RxBus.class.getSimpleName();
     private static RxBus instance;
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
 
     public static synchronized RxBus get() {
         if (null == instance) {

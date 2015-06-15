@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Handler;
 import android.os.Looper;
 import com.wangjie.rxandroideventssample.annotation.accept.DefaultAcceptConfiguration;
+import com.wangjie.rxandroideventssample.rxbus.RxBus;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -20,6 +21,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        RxBus.DEBUG = true;
+        
         DefaultAcceptConfiguration.getInstance().registerAcceptConfiguration(new DefaultAcceptConfiguration.OnDefaultAcceptConfiguration() {
             @Override
             public Executor applyAcceptExecutor() {
