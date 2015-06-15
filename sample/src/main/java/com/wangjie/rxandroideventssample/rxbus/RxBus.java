@@ -59,12 +59,12 @@ public class RxBus {
         if (DEBUG) Log.d(TAG, "[unregister]subjectMapper: " + subjectMapper);
     }
 
-    public void send(@NonNull Object content) {
-        send(content.getClass().getName(), content);
+    public void post(@NonNull Object content) {
+        post(content.getClass().getName(), content);
     }
 
     @SuppressWarnings("unchecked")
-    public void send(@NonNull Object tag, @NonNull Object content) {
+    public void post(@NonNull Object tag, @NonNull Object content) {
         List<Subject> subjectList = subjectMapper.get(tag);
 
         if (!ABTextUtil.isEmpty(subjectList)) {

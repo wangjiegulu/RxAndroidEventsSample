@@ -130,23 +130,23 @@ public class MainActivity extends BaseActivity {
                 feed.setCreated(System.currentTimeMillis() - (random.nextInt(ONE_HOUR + 10) + ONE_HOUR));
                 addFeedsEvent.getFeeds().add(feed);
 
-                RxBus.get().send(addFeedsEvent);
+                RxBus.get().post(addFeedsEvent);
 //                RxBus.getInstance().send(String.class.getName(), "hello aaa");
                 break;
             case R.id.menu_main_delete_feed:
                 DeleteFeedsEvent deleteFeedsEvent = new DeleteFeedsEvent();
                 deleteFeedsEvent.setDeleteIndex(0);
-                RxBus.get().send(deleteFeedsEvent);
+                RxBus.get().post(deleteFeedsEvent);
 //                RxBus.getInstance().send(String.class.getName(), "hello bbb");
                 break;
             case R.id.menu_main_action_event_refresh:
-                RxBus.get().send(ActionEvent.REFRESH, ActionEvent.REFRESH);
+                RxBus.get().post(ActionEvent.REFRESH, ActionEvent.REFRESH);
                 break;
             case R.id.menu_main_action_event_close:
-                RxBus.get().send(ActionEvent.CLOSE, ActionEvent.CLOSE);
+                RxBus.get().post(ActionEvent.CLOSE, ActionEvent.CLOSE);
                 break;
             case R.id.menu_main_action_event_edit:
-                RxBus.get().send(ActionEvent.EDIT, ActionEvent.EDIT);
+                RxBus.get().post(ActionEvent.EDIT, ActionEvent.EDIT);
                 break;
 
             default:

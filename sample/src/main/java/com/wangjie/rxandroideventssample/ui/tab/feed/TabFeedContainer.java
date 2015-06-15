@@ -102,7 +102,7 @@ public class TabFeedContainer extends TabContainer implements TabFeedViewer, Fee
     @Override
     public void onFeedItemClick(int position, Feed feed) {
 //        showToastMessage(feed.getTitle());
-        RxBus.get().send(new FeedItemClickEvent().setPosition(position).setFeed(feed));
+        RxBus.get().post(new FeedItemClickEvent().setPosition(position).setFeed(feed));
     }
 
     @Override
