@@ -65,7 +65,7 @@ tag: The tag of the message.
 clazz: The Class of the message.
 ```
 
-### 3. Post a message:
+### 3. Post a message any where:
 ```java
 AddFeedsEvent addFeedsEvent = new AddFeedsEvent();
 // Construct a AddFeedsEvent Object...
@@ -109,7 +109,7 @@ addOb.observeOn(AndroidSchedulers.mainThread())
                     // todo: Accept Message and process here
                 });
 ```
-### Post a message from any where
+### Post a message any where
 ```java
 RxBus.get().post("addFeedTag", "hello RxBus!");
 ```
