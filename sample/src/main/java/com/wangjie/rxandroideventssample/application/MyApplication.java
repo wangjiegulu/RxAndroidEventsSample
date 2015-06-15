@@ -22,7 +22,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         RxBus.DEBUG = true;
-        
+
         DefaultAcceptConfiguration.getInstance().registerAcceptConfiguration(new DefaultAcceptConfiguration.OnDefaultAcceptConfiguration() {
             @Override
             public Executor applyAcceptExecutor() {
