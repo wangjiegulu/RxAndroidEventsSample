@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+        >
+
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/tab_feed_load_feeds_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            />
+    <android.support.v7.widget.AppCompatButton
+            android:id="@+id/tab_feed_load_feeds_btn"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="load feeds"
+            />
+</LinearLayout>
