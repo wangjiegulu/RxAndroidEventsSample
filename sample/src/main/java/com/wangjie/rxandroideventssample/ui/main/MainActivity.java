@@ -7,13 +7,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.wangjie.androidbucket.log.Logger;
 import com.wangjie.androidinject.annotation.annotations.base.AILayout;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
 import com.wangjie.rxandroideventssample.R;
+import com.wangjie.rxandroideventssample.annotation.accept.Accept;
 import com.wangjie.rxandroideventssample.base.BaseActivity;
 import com.wangjie.rxandroideventssample.events.ActionEvent;
 import com.wangjie.rxandroideventssample.events.AddFeedsEvent;
 import com.wangjie.rxandroideventssample.events.DeleteFeedsEvent;
+import com.wangjie.rxandroideventssample.events.FeedItemClickEvent;
 import com.wangjie.rxandroideventssample.provider.model.Feed;
 import com.wangjie.rxandroideventssample.rxbus.RxBus;
 import com.wangjie.rxandroideventssample.ui.main.adapter.TabAdapter;
@@ -27,6 +30,7 @@ import java.util.Random;
 
 @AILayout(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
+    private static final String TAG = MainActivity.class.getName();
     @AIView(R.id.activity_main_tb)
     private Toolbar toolbar;
     @AIView(R.id.activity_main_tl)
@@ -149,5 +153,13 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Accept
+    public void onPostAccept(Object tag, FeedItemClickEvent event) {
+        Logger.d(TAG, "onPostAccept event: " + event);
+        Feed feed = event.getFeed();
+        showToastMessage("main_" + feed.getTitle() + "_" + event.getPosition());
     }
 }

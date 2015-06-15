@@ -18,7 +18,9 @@ import com.wangjie.rxandroideventssample.annotation.accept.AcceptType;
 import com.wangjie.rxandroideventssample.events.ActionEvent;
 import com.wangjie.rxandroideventssample.events.AddFeedsEvent;
 import com.wangjie.rxandroideventssample.events.DeleteFeedsEvent;
+import com.wangjie.rxandroideventssample.events.FeedItemClickEvent;
 import com.wangjie.rxandroideventssample.provider.model.Feed;
+import com.wangjie.rxandroideventssample.rxbus.RxBus;
 import com.wangjie.rxandroideventssample.ui.main.adapter.FeedAdapter;
 import com.wangjie.rxandroideventssample.ui.tab.TabContainer;
 
@@ -99,7 +101,8 @@ public class TabFeedContainer extends TabContainer implements TabFeedViewer, Fee
 
     @Override
     public void onFeedItemClick(int position, Feed feed) {
-        showToastMessage(feed.getTitle());
+//        showToastMessage(feed.getTitle());
+        RxBus.get().send(new FeedItemClickEvent().setPosition(position).setFeed(feed));
     }
 
     @Override
