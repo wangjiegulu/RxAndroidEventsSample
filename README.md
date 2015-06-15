@@ -34,7 +34,7 @@ protected void onDestroy() {
 ```java
 @Accept
 public void onPostAccept(Object tag, AddFeedsEvent event) {
-    // todo: Accept Message and process here (in main thread)
+    // todo: Accept event and process here (in main thread)
 }
 ```
 or
@@ -50,7 +50,7 @@ or
     )
     public void onPostAccept(Object tag, Object actionEvent) {
         Logger.d(TAG, "[ActionEvent]onPostAccept action event name: " + actionEvent);
-        // todo: Accept Message and process here (in new thread)
+        // todo: Accept event and process here (in new thread)
     }
 ```
 
@@ -61,11 +61,11 @@ value[]: AcceptType annotation array that specify the types this method can be a
 ```
 @AcceptType:
 ```
-tag: The tag of the message.
-clazz: The Class of the message.
+tag: The tag of the event.
+clazz: The Class of the event.
 ```
 
-### 3. Post a message:
+### 3. Post a event any where:
 ```java
 AddFeedsEvent addFeedsEvent = new AddFeedsEvent();
 // Construct a AddFeedsEvent Object...
@@ -106,10 +106,10 @@ Observable<String> addOb = RxBus.get()
                 
 addOb.observeOn(AndroidSchedulers.mainThread())
                 .subscribe(s -> {
-                    // todo: Accept Message and process here
+                    // todo: Accept event and process here
                 });
 ```
-### Post a message from any where
+### Post a event any where
 ```java
 RxBus.get().post("addFeedTag", "hello RxBus!");
 ```
