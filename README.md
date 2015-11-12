@@ -1,5 +1,8 @@
 # RxAndroidEventsSample
 BusEvents implementation base RxJava/RxAndroid/AndroidInject.
+
+博客《基于RxJava、RxAndroid的EventBus实现》：<http://www.cnblogs.com/tiantianbyconan/p/4578699.html>
+
 ## Dependencies：</br>
 [AndroidBucket](https://github.com/wangjiegulu/AndroidBucket)：My base library</br>
 [AndroidInject](https://github.com/wangjiegulu/androidInject)：My Inject library</br>
